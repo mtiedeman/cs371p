@@ -52,7 +52,7 @@ void collatz_solve (istream& r, ostream& w) {
     string s;
     while (getline(r, s)) {
         const pair<int, int> p = collatz_read(s);
-        const int i = p.first;
-        const int j = p.second;
-        const int v = collatz_eval(i, j);
+        const int            i = p.first;
+        const int            j = p.second;
+        const int            v = collatz_eval(i, j);
         collatz_print(w, i, j, v);}}
