@@ -9,7 +9,7 @@
 #include "gtest/gtest.h"
 
 bool is_prime (int n) {
-	assert(n > 0);
+    assert(n > 0);
     if ((n < 2) || ((n % 2) == 0))
         return false;
     for (int i = 3; i < sqrt(n); ++i)
