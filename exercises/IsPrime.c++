@@ -6,8 +6,6 @@
 #include <cmath>    // sqrt
 #include <iostream> // cout, endl
 
-#include "gtest/gtest.h"
-
 bool is_prime (int n) {
     assert(n > 0);
     if ((n < 2) || ((n % 2) == 0))
@@ -17,69 +15,35 @@ bool is_prime (int n) {
             return false;
     return true;}
 
-TEST(MyUnitTests, test_1) {
-    ASSERT_FALSE(is_prime(1));}
+int main () {
+    using namespace std;
+    cout << "IsPrime.c++" << endl;
 
-TEST(MyUnitTests, test_2) {
-    ASSERT_FALSE(is_prime(2));}
+    assert(!is_prime(1));
+    assert(!is_prime(2));
+    assert( is_prime(3));
+    assert(!is_prime(4));
+    assert( is_prime(5));
+    assert( is_prime(7));
+    assert( is_prime(9));
+    assert(!is_prime(27));
+    assert( is_prime(29));
 
-TEST(MyUnitTests, test_3) {
-    ASSERT_TRUE(is_prime(3));}
-
-TEST(MyUnitTests, test_4) {
-    ASSERT_FALSE(is_prime(4));}
-
-TEST(MyUnitTests, test_5) {
-    ASSERT_TRUE(is_prime(5));}
-
-TEST(MyUnitTests, test_6) {
-    ASSERT_TRUE(is_prime(7));}
-
-TEST(MyUnitTests, test_7) {
-    ASSERT_TRUE(is_prime(9));}
-
-TEST(MyUnitTests, test_8) {
-    ASSERT_FALSE(is_prime(27));}
-
-TEST(MyUnitTests, test_9) {
-    ASSERT_TRUE(is_prime(29));}
+    cout << "Done." << endl;
+    return 0;}
 
 /*
-Running main() from gtest_main.cc
-[==========] Running 9 tests from 1 test case.
-[----------] Global test environment set-up.
-[----------] 9 tests from MyUnitTests
-[ RUN      ] MyUnitTests.test_1
-[       OK ] MyUnitTests.test_1 (0 ms)
-[ RUN      ] MyUnitTests.test_2
-[       OK ] MyUnitTests.test_2 (0 ms)
-[ RUN      ] MyUnitTests.test_3
-[       OK ] MyUnitTests.test_3 (0 ms)
-[ RUN      ] MyUnitTests.test_4
-[       OK ] MyUnitTests.test_4 (0 ms)
-[ RUN      ] MyUnitTests.test_5
-[       OK ] MyUnitTests.test_5 (0 ms)
-[ RUN      ] MyUnitTests.test_6
-[       OK ] MyUnitTests.test_6 (0 ms)
-[ RUN      ] MyUnitTests.test_7
-[       OK ] MyUnitTests.test_7 (0 ms)
-[ RUN      ] MyUnitTests.test_8
-[       OK ] MyUnitTests.test_8 (0 ms)
-[ RUN      ] MyUnitTests.test_9
-[       OK ] MyUnitTests.test_9 (0 ms)
-[----------] 9 tests from MyUnitTests (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 9 tests from 1 test case ran. (0 ms total)
-[  PASSED  ] 9 tests.
+% IsPrime
+IsPrime.c++
+Done.
 
 
 
-gcov -b IsPrime.c++ | grep -A 5 "File 'IsPrime.c++'"
+% gcov -b IsPrime.c++ | grep -A 5 "File 'IsPrime.c++'"
 File 'IsPrime.c++'
-Lines executed:100.00% of 25
-Branches executed:55.83% of 163
-Taken at least once:27.61% of 163
+Lines executed:100.00% of 19
+Branches executed:100.00% of 28
+Taken at least once:64.29% of 28
 No calls
 IsPrime.c++:creating 'IsPrime.c++.gcov'
 */
